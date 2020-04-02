@@ -1,0 +1,7 @@
+"PlatformArn": "arn:aws:elasticbeanstalk:us-west-2::platform/(BETA) Docker running on 64bit Amazon Linux 2/0.1.1",
+"PlatformArn": "arn:aws:elasticbeanstalk:us-west-2::platform/Docker running on 64bit Amazon Linux/2.14.3",
+  - "PlatformArn": "arn:aws:elasticbeanstalk:us-west-2::platform/Multi-container Docker running on 64bit Amazon Linux/2.20.0",
+"PlatformArn": "arn:aws:elasticbeanstalk:us-west-2::platform/Preconfigured Docker - GlassFish 5.0 with Java 8 running on 64bit Amazon Linux/2.14.3",
+"PlatformArn": "arn:aws:elasticbeanstalk:us-west-2::platform/Preconfigured Docker - Go 1.3 running on 64bit Debian/2.14.3",
+"PlatformArn": "arn:aws:elasticbeanstalk:us-west-2::platform/Preconfigured Docker - Go 1.4 running on 64bit Debian/2.14.3",
+"PlatformArn": "arn:aws:elasticbeanstalk:us-west-2::platform/Preconfigured Docker - Python 3.4 running on 64bit Debian/2.14.3",

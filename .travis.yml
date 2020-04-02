@@ -6,3 +6,35 @@ env:
 sudo: required
 services:
   - docker
+
+before_install:
+  - docker build -t alexacid88/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true alexacid88/react-test npm run test
+
+after_success:
+  - docker build -t alexacid88/multi-client ./client
+  - docker build -t alexacid88/multi-nginx ./nginx
+  - docker build -t alexacid88/multi-server ./server
+  - docker build -t alexacid88/multi-worker ./worker
+  # Log in the docker CLI
+  - echo "$DOCKER_PASSWORK" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take images and push them to docker hub
+  - docker push alexacid88/multi-client
+  - docker push alexacid88/multi-nginx
+  - docker push alexacid88/multi-server
+  - docker push alexacid88/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  region: us-west-2
+  app: fibo
+  env: fibo-dev
+  bucket_name: elasticbeanstalk-us-west-2-767507783469
+  bucket_path: fibo
+  on:
+    branch: develop
+  skip_cleanup: true
